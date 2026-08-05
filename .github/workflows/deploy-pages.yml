@@ -1,0 +1,49 @@
+name: Deploy WRC guide to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/2026-wrc-guide-webapp-ls3mq2
+    paths:
+      - wrc-2026-guide/**
+      - .github/workflows/deploy-pages.yml
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Prepare site directory
+        run: |
+          mkdir -p site
+          cp -r wrc-2026-guide/. site/
+          # 근거 자료 원본은 웹사이트에 포함하지 않는다
+          rm -rf site/sources
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
