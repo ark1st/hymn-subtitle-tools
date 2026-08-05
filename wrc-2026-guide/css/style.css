@@ -70,7 +70,14 @@ body {
   font-size: clamp(1.05rem, 3vw, 1.35rem);
   color: #f3d9a2;
   font-weight: 600;
-  margin-bottom: 28px;
+}
+
+.hero-verse { font-size: 0.85em; opacity: 0.85; }
+
+.hero-theme-en {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 4px 0 28px;
 }
 
 .hero-facts {
@@ -418,6 +425,100 @@ h3 { font-size: 1.05rem; margin: 22px 0 10px; }
 .links a .link-name { font-weight: 700; color: var(--primary); }
 .links a .link-desc { font-size: 0.85rem; color: var(--ink-soft); }
 .links a .link-url { font-size: 0.78rem; color: #9a93bd; word-break: break-all; }
+
+/* ---------- 대회 안내 ---------- */
+.section-sub { font-size: 0.85rem; color: var(--ink-soft); margin: -6px 0 12px; }
+
+.emergency {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.em-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #fff4f2, #fdeeee);
+  border: 1px solid #f3cfc9;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+
+.em-label { font-size: 0.78rem; font-weight: 700; color: #b3402f; }
+.em-value { font-size: 0.95rem; font-weight: 800; color: #7c2417; }
+
+.guide-item .faq-q { font-size: 1rem; }
+
+.prog-when {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-top: 3px;
+}
+
+.guide-h {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin: 12px 0 6px;
+}
+
+.guide-items { padding-left: 18px; margin-bottom: 10px; }
+.guide-items li { font-size: 0.88rem; color: var(--ink); margin-bottom: 6px; }
+
+.guide-contacts {
+  background: #f4f2fb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  color: #4b3f7a;
+  margin-bottom: 10px;
+}
+
+.guide-contacts div { margin-bottom: 2px; }
+
+/* ---------- 주요 장소 / 약도 ---------- */
+.places {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.place-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+
+.place-row:last-child { border-bottom: none; }
+.place-name { color: var(--ink); }
+.place-where { font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+.maps { display: grid; gap: 14px; }
+
+.map-fig {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.map-fig img { display: block; width: 100%; height: auto; }
+
+.map-fig figcaption {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
 
 /* ---------- Footer ---------- */
 footer {

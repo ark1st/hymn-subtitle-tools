@@ -15,7 +15,8 @@
       <p class="hero-badge" id="dday-badge">D-DAY</p>
       <p class="hero-sub">The 29th 2026 World Remnant Conference</p>
       <h1>제29차 2026<br />세계렘넌트대회</h1>
-      <p class="hero-theme">“황제를 살린 영적황제”</p>
+      <p class="hero-theme">“황제를 살린 영적황제” <span class="hero-verse">(창 41:38)</span></p>
+      <p class="hero-theme-en">The Spiritual Emperor Who Saved Emperors</p>
       <div class="hero-facts">
         <div class="fact">
           <span class="fact-icon">📅</span>
@@ -36,9 +37,10 @@
   <nav class="tabs" id="tabs">
     <button class="tab active" data-panel="panel-overview">개요</button>
     <button class="tab" data-panel="panel-schedule">일정</button>
+    <button class="tab" data-panel="panel-guide">안내</button>
     <button class="tab" data-panel="panel-register">등록</button>
-    <button class="tab" data-panel="panel-venue">오시는 길</button>
-    <button class="tab" data-panel="panel-info">안내·FAQ</button>
+    <button class="tab" data-panel="panel-venue">장소</button>
+    <button class="tab" data-panel="panel-info">FAQ</button>
   </nav>
 
   <main>
@@ -56,10 +58,22 @@
       <h2>일정 <span class="badge-soft" id="schedule-badge"></span></h2>
       <div class="day-nav" id="day-nav"></div>
       <div id="schedule-list"></div>
+      <h2>주요 프로그램</h2>
+      <p class="section-sub">항목을 눌러 자세히 볼 수 있어요.</p>
+      <div id="program-list"></div>
       <div class="notice">
         세부 시간표는 WEEA 공지사항의 <strong>「2026 WRC Schedule 일정표」 PDF</strong>가 기준입니다.
         <a href="https://www.weea.kr/notice?mod=document&pageid=1&uid=31775" target="_blank" rel="noopener">공식 일정표 보기 →</a>
       </div>
+    </section>
+
+    <!-- 대회 안내 (공식 가이드) -->
+    <section class="panel" id="panel-guide">
+      <h2>긴급 연락처</h2>
+      <div class="emergency" id="emergency"></div>
+      <h2>대회 안내</h2>
+      <p class="section-sub">공식 가이드 내용입니다. 항목을 눌러 펼쳐 보세요.</p>
+      <div id="guide-list"></div>
     </section>
 
     <!-- 등록 -->
@@ -82,10 +96,15 @@
       </div>
     </section>
 
-    <!-- 오시는 길 -->
+    <!-- 장소 -->
     <section class="panel" id="panel-venue">
       <h2>오시는 길</h2>
       <div class="venue-card" id="venue-card"></div>
+      <h3>주요 장소</h3>
+      <div id="venue-places"></div>
+      <h3>장소 약도</h3>
+      <p class="section-sub">이미지를 누르면 크게 볼 수 있어요.</p>
+      <div class="maps" id="venue-maps"></div>
       <h3>이동 팁</h3>
       <ul class="tips" id="venue-tips"></ul>
     </section>

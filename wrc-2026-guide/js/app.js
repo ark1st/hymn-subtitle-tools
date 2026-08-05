@@ -182,7 +182,68 @@
     }
   }
 
-  /* ---------- 오시는 길 ---------- */
+  /* ---------- 주요 프로그램 ---------- */
+  function renderPrograms() {
+    $('#program-list').innerHTML = D.programs
+      .map(
+        (p) =>
+          '<div class="faq-item guide-item"><button class="faq-q"><span>' +
+          p.icon + ' ' + esc(p.title) +
+          '<span class="prog-when">' + esc(p.when) + '</span></span></button>' +
+          '<div class="faq-a"><ul class="guide-items">' +
+          p.items.map((i) => '<li>' + esc(i) + '</li>').join('') +
+          '</ul></div></div>'
+      )
+      .join('');
+
+    $('#program-list').addEventListener('click', (ev) => {
+      const q = ev.target.closest('.faq-q');
+      if (q) q.parentElement.classList.toggle('open');
+    });
+  }
+
+  /* ---------- 대회 안내 (공식 가이드) ---------- */
+  function renderGuide() {
+    $('#emergency').innerHTML = D.emergencyContacts
+      .map(
+        (c) =>
+          '<a class="em-card" href="tel:' + c.value.replace(/[^0-9]/g, '') + '">' +
+          '<span class="em-label">' + esc(c.label) + '</span>' +
+          '<span class="em-value">' + esc(c.value) + '</span></a>'
+      )
+      .join('');
+
+    $('#guide-list').innerHTML = D.guideSections
+      .map((s) => {
+        const body = s.groups
+          .map((g) => {
+            let html = '';
+            if (g.heading) html += '<h4 class="guide-h">' + esc(g.heading) + '</h4>';
+            html += '<ul class="guide-items">' + g.items.map((i) => '<li>' + esc(i) + '</li>').join('') + '</ul>';
+            if (g.contacts && g.contacts.length) {
+              html +=
+                '<div class="guide-contacts">' +
+                g.contacts.map((c) => '<div>★ ' + esc(c) + '</div>').join('') +
+                '</div>';
+            }
+            return html;
+          })
+          .join('');
+        return (
+          '<div class="faq-item guide-item"><button class="faq-q">' +
+          s.icon + ' ' + esc(s.title) +
+          '</button><div class="faq-a">' + body + '</div></div>'
+        );
+      })
+      .join('');
+
+    $('#guide-list').addEventListener('click', (ev) => {
+      const q = ev.target.closest('.faq-q');
+      if (q) q.parentElement.classList.toggle('open');
+    });
+  }
+
+  /* ---------- 장소 ---------- */
   function renderVenue() {
     const v = D.venue;
     $('#venue-card').innerHTML =
@@ -194,6 +255,26 @@
         .map((m) => '<a href="' + m.url + '" target="_blank" rel="noopener">' + esc(m.name) + ' ↗</a>')
         .join('') +
       '</div>';
+
+    $('#venue-places').innerHTML =
+      '<div class="places">' +
+      v.places
+        .map(
+          (p) =>
+            '<div class="place-row"><span class="place-name">' + esc(p.name) + '</span>' +
+            '<span class="place-where">' + esc(p.where) + '</span></div>'
+        )
+        .join('') +
+      '</div>';
+
+    $('#venue-maps').innerHTML = v.maps
+      .map(
+        (m) =>
+          '<figure class="map-fig"><a href="' + m.file + '" target="_blank" rel="noopener">' +
+          '<img src="' + m.file + '" alt="' + esc(m.caption) + '" loading="lazy" /></a>' +
+          '<figcaption>' + esc(m.caption) + '</figcaption></figure>'
+      )
+      .join('');
 
     $('#venue-tips').innerHTML = v.tips.map((t) => '<li>' + esc(t) + '</li>').join('');
   }
@@ -278,6 +359,8 @@
   initTabs();
   renderOverview();
   renderSchedule();
+  renderPrograms();
+  renderGuide();
   renderGroups();
   renderVenue();
   renderChecklist();
