@@ -22,19 +22,8 @@ jobs:
           mkdir -p wrc-2026-guide/sources
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 
-          echo "== 시간표 PDF (weea 공지 첨부) =="
-          curl -sL -A "$UA" -e "https://www.weea.kr/notice?mod=document&pageid=1&uid=31775" \
-            "https://www.weea.kr/notice?pageid=1&uid=31775&action=kboard_file_download&kboard-file-download-nonce=c02be568a7&file=file1" \
-            -o wrc-2026-guide/sources/2026-WRC-timetable.pdf -w "%{http_code}\n" || true
-          file wrc-2026-guide/sources/2026-WRC-timetable.pdf || true
-
-          echo "== 시간표 이미지 (공지 본문) =="
-          curl -sL -A "$UA" \
-            "https://www.weea.kr/wp-content/uploads/kboard_attached/25/202607/6a5785ff917a36090917.jpeg" \
-            -o wrc-2026-guide/sources/2026-WRC-timetable.jpeg -w "%{http_code}\n" || true
-          file wrc-2026-guide/sources/2026-WRC-timetable.jpeg || true
-
           echo "== Notion 전체 블록 수집 =="
+          npm install --no-save --no-fund --no-audit notion-client
           node wrc-2026-guide/sources/fetch-notion-full.mjs || true
 
           ls -la wrc-2026-guide/sources/
