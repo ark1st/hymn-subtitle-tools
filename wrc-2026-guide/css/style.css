@@ -171,8 +171,6 @@ h3 { font-size: 1.05rem; margin: 22px 0 10px; }
 .card .card-value { font-weight: 700; font-size: 1rem; }
 .card .card-desc { font-size: 0.85rem; color: var(--ink-soft); margin-top: 6px; }
 
-.group-card { border-top: 4px solid var(--accent); }
-
 /* ---------- Notice ---------- */
 .notice {
   margin-top: 20px;
@@ -259,51 +257,6 @@ h3 { font-size: 1.05rem; margin: 22px 0 10px; }
 
 .sch-name { font-weight: 600; font-size: 0.95rem; }
 .sch-meta { font-size: 0.82rem; color: var(--ink-soft); }
-
-/* ---------- Finder ---------- */
-.finder {
-  background: linear-gradient(135deg, #201856, #33246e);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-}
-
-.finder h3 { margin: 0 0 6px; }
-.finder p { font-size: 0.88rem; opacity: 0.85; margin-bottom: 14px; }
-
-.finder-row { display: flex; gap: 10px; }
-
-.finder-row input {
-  flex: 1;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 1rem;
-  min-width: 0;
-}
-
-.finder-row button {
-  border: none;
-  border-radius: 10px;
-  padding: 12px 22px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  background: var(--accent);
-  color: var(--accent-ink);
-  cursor: pointer;
-}
-
-.finder-result {
-  margin-top: 14px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 0.95rem;
-}
-
-.finder-result strong { color: #f3d9a2; }
 
 /* ---------- Venue ---------- */
 .venue-card {

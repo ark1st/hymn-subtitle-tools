@@ -38,7 +38,6 @@
     <button class="tab active" data-panel="panel-overview">개요</button>
     <button class="tab" data-panel="panel-schedule">일정</button>
     <button class="tab" data-panel="panel-guide">안내</button>
-    <button class="tab" data-panel="panel-register">등록</button>
     <button class="tab" data-panel="panel-venue">장소</button>
     <button class="tab" data-panel="panel-info">FAQ</button>
   </nav>
@@ -74,26 +73,6 @@
       <h2>대회 안내</h2>
       <p class="section-sub">공식 가이드 내용입니다. 항목을 눌러 펼쳐 보세요.</p>
       <div id="guide-list"></div>
-    </section>
-
-    <!-- 등록 -->
-    <section class="panel" id="panel-register">
-      <h2>등록 안내</h2>
-      <div class="finder">
-        <h3>내 그룹 찾기</h3>
-        <p>출생연도를 입력하면 등록 그룹을 알려드립니다.</p>
-        <div class="finder-row">
-          <input type="number" id="birth-year" inputmode="numeric" placeholder="예: 2008" min="1900" max="2026" />
-          <button id="find-group">확인</button>
-        </div>
-        <div class="finder-result" id="finder-result" hidden></div>
-      </div>
-      <h3>등록 그룹</h3>
-      <div class="cards" id="group-cards"></div>
-      <div class="notice">
-        등록 절차·참가비 등 상세 내용은 소속 교회/단체 인도자와
-        <a href="https://wrc.weea.kr/guide/kr.asp" target="_blank" rel="noopener">공식 안내 페이지</a>를 통해 확인하세요.
-      </div>
     </section>
 
     <!-- 장소 -->

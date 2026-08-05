@@ -133,55 +133,6 @@
     renderDays('all');
   }
 
-  /* ---------- 등록 ---------- */
-  function renderGroups() {
-    $('#group-cards').innerHTML = D.registrationGroups
-      .map(
-        (g) =>
-          '<div class="card group-card" style="border-top-color:' + g.color + '">' +
-          '<div class="card-label">' + birthRangeLabel(g) + '</div>' +
-          '<div class="card-value">' + esc(g.name) + '</div>' +
-          '<div class="card-desc">' + esc(g.desc) + '</div></div>'
-      )
-      .join('');
-
-    $('#find-group').addEventListener('click', findGroup);
-    $('#birth-year').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') findGroup();
-    });
-  }
-
-  function birthRangeLabel(g) {
-    const [from, to] = g.birthYears;
-    if (from === null) return to + '년생 및 그 이전';
-    return from + '년생 ~ ' + to + '년생';
-  }
-
-  function findGroup() {
-    const out = $('#finder-result');
-    const year = parseInt($('#birth-year').value, 10);
-    out.hidden = false;
-
-    if (!year || year < 1900 || year > 2026) {
-      out.innerHTML = '올바른 출생연도를 입력해 주세요. (예: 2008)';
-      return;
-    }
-
-    const g = D.registrationGroups.find((g) => {
-      const [from, to] = g.birthYears;
-      return (from === null || year >= from) && year <= to;
-    });
-
-    if (g) {
-      out.innerHTML =
-        year + '년생은 <strong>' + esc(g.name) + ' 그룹</strong>으로 등록합니다.<br />' +
-        '<span style="font-size:0.85rem;opacity:0.85">' + esc(g.desc) + '</span>';
-    } else {
-      out.innerHTML =
-        year + '년생은 기본 그룹 구분(렘넌트/일반/동반자녀)에 해당하지 않습니다. 소속 인도자 또는 공식 안내처에 문의해 주세요.';
-    }
-  }
-
   /* ---------- 주요 프로그램 ---------- */
   function renderPrograms() {
     $('#program-list').innerHTML = D.programs
@@ -361,7 +312,6 @@
   renderSchedule();
   renderPrograms();
   renderGuide();
-  renderGroups();
   renderVenue();
   renderChecklist();
   renderFaq();
